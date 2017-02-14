@@ -1926,7 +1926,7 @@
                                 // http://perfectionkills.com/global-eval-what-are-the-options/
                                 // sanitize response accordingly if data filter callback provided
                                 result = ajaxDataFilter(result, dataType, settings)
-                                if (dataType == 'script')(1, eval)(result)
+                                if (dataType == 'script')(1, eval)(result)//不明白什么意思。大概明白-20170214
                                 else if (dataType == 'xml') result = xhr.responseXML
                                 else if (dataType == 'json') result = blankRE.test(result) ? null : $.parseJSON(result)
                             } catch (e) { error = e }
@@ -2047,6 +2047,7 @@
     (function($) {
         /**
          * 序列化为数组
+         * 使用name属性作为key，value作为值
          */
         $.fn.serializeArray = function() {
             var name, type, result = [],
